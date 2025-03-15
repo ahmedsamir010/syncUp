@@ -6,7 +6,7 @@ import { HeaderComponent } from "../../../../Shared/components/header/header.com
 
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, FormsModule, RouterModule, HeaderComponent],
+  imports: [CommonModule, FormsModule, RouterModule,],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
