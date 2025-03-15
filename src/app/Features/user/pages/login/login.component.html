@@ -1,6 +1,7 @@
-<div class="flex items-center justify-center min-h-screen bg-gray-100">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
-      <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">Login</h2>
+<app-header></app-header>
+<div class="flex items-center justify-center min-h-screen bg-gray-100 shadow">
+    <div class="bg-white p-8 rounded-lg shadow-xl w-1/2">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">Login</h2>
 
       <form (ngSubmit)="onSubmit()">
         <!-- Email -->
@@ -23,19 +24,24 @@
         </div>
 
         <!-- Forgot Password -->
-        <div class="flex justify-between text-sm text-gray-600">
-          <a href="#" class="hover:underline">Forgot password?</a>
+        <div class="flex justify-end text-sm text-gray-600">
+          <a  [routerLink]="'/forgetpassword'" class="hover:underline">Forgot password?</a>
         </div>
 
         <!-- Login Button -->
-        <button type="submit"
-          class="w-full mt-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-lg hover:opacity-90 transition">
-          Login
-        </button>
+        <div class="flex justify-center">
+          <button type="submit"
+            [routerLink]="'/dashboard/home'"
+            class="w-1/2 mt-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-lg hover:opacity-90 transition">
+            Login
+          </button>
+        </div>
 
         <!-- Register Link -->
         <p class="text-center text-sm text-gray-600 mt-4">
-          Do not have an account? <a href="#" class="text-blue-500 hover:underline">Create new account</a>
+          Do not have an account? <a href="#" class="text-blue-500 hover:underline"
+          [routerLink]="'/register'"
+          >Create new account</a>
         </p>
       </form>
     </div>
