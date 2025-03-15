@@ -1,0 +1,95 @@
+<div class="p-6 bg-white shadow-xl rounded-lg">
+    <form [formGroup]="meetingForm" (ngSubmit)="onSubmit()">
+      <!-- Meeting Title -->
+      <div class="mb-12 mt-12">
+        <label for="meetingTitle" class="block text-sm font-medium text-gray-700">Meeting Title</label>
+        <input
+          id="meetingTitle"
+          type="text"
+          pInputText
+          formControlName="title"
+          class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          placeholder="Enter meeting title"
+        />
+      </div>
+
+      <!-- Schedule for Later Switch -->
+      <div class="mb-12 mt-12 flex items-center">
+        <p-inputSwitch [(ngModel)]="scheduleLater" (onChange)="onScheduleChange()"></p-inputSwitch>
+        <span class="ml-2 text-sm text-gray-600">Schedule for later?</span>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-12 mt-12">
+        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+        <textarea
+          id="description"
+          pInputTextarea
+          formControlName="description"
+          class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          placeholder="Describe here"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <!-- Date and Time -->
+      <div class="flex space-x-4 mb-12 mt-12">
+        <div class="w-1/2">
+          <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+          <p-calendar
+            [(ngModel)]="selectedDate"
+            [showIcon]="true"
+            formControlName="date"
+            class="w-full p-2 border border-gray-300 rounded-md"
+            [disabled]="!scheduleLater"
+          ></p-calendar>
+        </div>
+        <div class="w-1/2">
+          <label for="time" class="block text-sm font-medium text-gray-700">Time</label>
+          <p-calendar
+            [(ngModel)]="selectedTime"
+            [timeOnly]="true"
+            [showIcon]="true"
+            formControlName="time"
+            class="w-full p-2 border border-gray-300 rounded-md"
+            [disabled]="!scheduleLater"
+          ></p-calendar>
+        </div>
+      </div>
+
+      <!-- Video & Microphone Icons -->
+      <div class="mb-12 mt-12 flex justify-center space-x-4">
+        <!-- Video Icon -->
+        <i
+          class="fas fa-video text-gray-500 text-2xl cursor-pointer transition duration-300"
+          [ngClass]="{ 'text-red-500': isVideoEnabled, 'text-gray-500': !isVideoEnabled }"
+          (click)="toggleVideo()"
+        ></i>
+
+        <!-- Microphone Icon -->
+        <i
+          class="fas fa-microphone text-gray-500 text-2xl cursor-pointer transition duration-300"
+          [ngClass]="{ 'text-green-500': isAudioEnabled, 'text-gray-500': !isAudioEnabled }"
+          (click)="toggleAudio()"
+        ></i>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex justify-end space-x-4">
+        <button
+          type="button"
+          pButton
+          label="Cancel"
+          class="p-button-secondary p-2 rounded-md"
+          (click)="onCancel()"
+        ></button>
+        <button
+          type="submit"
+          pButton
+          label="Start Meeting"
+          class="p-button-primary p-2 rounded-md"
+          [disabled]="!meetingForm.valid"
+        ></button>
+      </div>
+    </form>
+</div>

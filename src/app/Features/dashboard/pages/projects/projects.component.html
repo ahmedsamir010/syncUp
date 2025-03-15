@@ -8,7 +8,7 @@
           class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
         <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
       </div>
-      <button class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+      <button (click)="addProject()" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">
         Add New Project
       </button>
     </div>
@@ -45,7 +45,7 @@
         <div class="w-24 bg-gray-200 h-2 rounded-full">
           <div class="bg-green-400 h-2 rounded-full" [style.width]="project.progress + '%'"></div>
         </div>
-        <i class="fas fa-video text-gray-500 mr-2"></i>
+        <i class="fas fa-video text-gray-500 mr-2 cursor-pointer" (click)="startMeeting()"></i>
         <i class="fas fa-ellipsis-v text-gray-500"></i>
       </div>
     </div>
