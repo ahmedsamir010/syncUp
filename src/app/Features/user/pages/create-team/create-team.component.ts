@@ -6,7 +6,7 @@ import { HeaderComponent } from "../../../../Shared/components/header/header.com
 
 @Component({
   selector: 'app-create-team',
-  imports: [CommonModule, FormsModule, RouterModule, HeaderComponent],
+  imports: [CommonModule, FormsModule, RouterModule],
 
   templateUrl: './create-team.component.html',
   styleUrl: './create-team.component.scss'
