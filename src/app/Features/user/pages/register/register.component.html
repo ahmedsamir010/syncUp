@@ -1,1 +1,109 @@
-<p>register works!</p>
+<div class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-1/2">
+      <h2 class="text-3xl font-bold mb-6 text-left">Create Account</h2>
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+        <!-- Full Name -->
+        <div class="mb-4">
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            [(ngModel)]="fullName"
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-gray-700"
+            placeholder="Full Name"
+            required
+          />
+        </div>
+  
+        <!-- Email Address -->
+        <div class="mb-4">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-gray-700"
+            placeholder="Email Address"
+            required
+          />
+        </div>
+  
+        <!-- Password -->
+        <div class="mb-4 relative">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-gray-700"
+            placeholder="Password"
+            required
+          />
+          <button type="button" (click)="togglePassword()" class="absolute right-3 top-3 text-gray-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </button>
+        </div>
+  
+        <!-- Terms Checkbox -->
+        <div class="mb-6 flex items-center">
+          <input
+            type="checkbox"
+            id="terms"
+            name="terms"
+            [(ngModel)]="terms"
+            class="mr-2 h-4 w-4 text-teal-500 focus:ring-teal-500 border-gray-300 rounded"
+            required
+          />
+          <label for="terms" class="text-sm text-gray-600">
+            I agree to the <a href="#" class="text-teal-500 hover:underline">terms of service & privacy policy</a>
+          </label>
+        </div>
+  
+      <div class="flex justify-center">
+          <!-- Sign Up Button -->
+          <button
+          type="submit"
+           class="w-1/2 mt-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-lg hover:opacity-90 transition">
+          Sign Up
+        </button>
+      </div>
+      </form>
+  
+      <!-- Social Login -->
+      <div class="relative my-6">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-gray-300"></div>
+        </div>
+        <div class="relative flex justify-center text-sm">
+          <span class="px-2 bg-white text-gray-500">or Sign Up With</span>
+        </div>
+      </div>
+  
+      <div class="flex justify-center space-x-4">
+        <!-- Google Button -->
+        <button class="w-10 h-10 bg-white border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <svg class="w-6 h-6" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-1.04.69-2.36 1.1-3.71 1.1-2.85 0-5.27-1.92-6.13-4.5H2.18v2.84C4 20.36 7.72 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.87 14.5c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.56H2.18C1.43 9.01 1 10.46 1 12s.43 2.99 1.18 4.44l3.69-2.94z"/>
+            <path fill="#EA4335" d="M12 4.9c1.62 0 3.06.58 4.21 1.71l3.15-3.15C17.46 1.88 14.97 1 12 1 7.72 1 4 3.64 2.18 7.56l3.69 2.94C6.73 7.92 9.15 5.9 12 4.9z"/>
+          </svg>
+        </button>
+  
+        <!-- Apple Button -->
+        <button class="w-10 h-10 bg-white border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .78-3.29.82-1.32.04-2.24-1.22-3.06-2.45-2.25-3.37-1.93-8.47 1.59-11.18 1.75-1.35 4.29-.91 5.95.54 1.65-1.45 4.18-1.89 5.93-.54 1.09.84 1.89 2.47 1.59 4.26-.36 2.24-1.82 4.45-2.27 5.87zm-3.77-14.72c-1.13 0-2.04.94-2.57 1.81-.54.89-.72 1.92-.22 2.94 1.18 0 2.06-.94 2.59-1.81.53-.88.71-1.94.2-2.94z"/>
+          </svg>
+        </button>
+      </div>
+  
+      <!-- Sign In Link -->
+      <p class="text-center text-sm text-gray-600 mt-6">
+        Already have an account? <a href="#" class="text-blue-500 hover:underline" [routerLink]="'/login'">Sign In</a>
+      </p>
+    </div>
+  </div>

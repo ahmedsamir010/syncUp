@@ -1,1 +1,58 @@
-<p>add-team-member works!</p>
+<div class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-1/2">
+        <h2 class="text-3xl font-bold mb-6 text-left">Add Team Members</h2>
+        <form #addTeamMembersForm="ngForm" (ngSubmit)="onSubmit()">
+            <!-- Team Members List -->
+            <div *ngFor="let member of teamMembers; let i = index" class="mb-4 flex items-center space-x-2">
+                <!-- Member's Email -->
+                <div class="flex-1">
+                    <input type="email" [id]="'email-' + i" [name]="'email-' + i" [(ngModel)]="member.email"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-gray-700"
+                        placeholder="Member's email" required />
+                </div>
+
+                <!-- Member's Name -->
+                <div class="flex-1">
+                    <input type="text" [id]="'name-' + i" [name]="'name-' + i" [(ngModel)]="member.name"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-gray-700"
+                        placeholder="Member's Name" required />
+                </div>
+
+                <!-- Remove Button (only show if more than one member) -->
+                <button *ngIf="teamMembers.length > 1" type="button" (click)="removeMember(i)"
+                    class="text-red-500 hover:text-red-700 focus:outline-none">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Add Member Button -->
+            <div class="mb-6 flex justify-end">
+                <button type="button" (click)="addMember()"
+                    class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Create Team Button -->
+            <div class="flex justify-center">
+                <button type="submit"
+                    class="w-1/2 mt-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-lg hover:opacity-90 transition">
+
+                    Next
+                </button>
+
+            </div>
+            <!-- Skip Link -->
+            <p class="text-center text-sm text-gray-600 mt-4 ">
+                <a href="#" class="text-blue-500 hover:underline font-bold size-9 " (click)="onSkip($event)">Skip</a>
+            </p>
+        </form>
+    </div>
+</div>
