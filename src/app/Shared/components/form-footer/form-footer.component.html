@@ -1,0 +1,16 @@
+<div class="flex items-center justify-center gap-3 border-t pt-4 mt-4">
+  <button
+    type="submit"
+    class="bg-mainColor rounded-lg py-2 w-full text-white"
+    (click)="submitHandler.emit()"
+  >
+    {{ "Submit" | translate }}
+  </button>
+  <button
+    type="button"
+    class="border border-mainColor rounded-lg py-2 w-full text-mainColor"
+    (click)="cancelHandler.emit()"
+  >
+    {{ "Cancel" | translate }}
+  </button>
+</div>
