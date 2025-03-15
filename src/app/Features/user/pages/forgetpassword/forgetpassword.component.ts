@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
  
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from "../../../../Shared/components/header/header.component";
 @Component({
   selector: 'app-forgetpassword',
-  imports: [CommonModule,FormsModule,RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, HeaderComponent],
 
   templateUrl: './forgetpassword.component.html',
   styleUrl: './forgetpassword.component.scss'

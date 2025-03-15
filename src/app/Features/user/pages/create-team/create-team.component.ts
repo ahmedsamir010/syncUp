@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { HeaderComponent } from "../../../../Shared/components/header/header.component";
 
 @Component({
   selector: 'app-create-team',
-  imports: [CommonModule,FormsModule,RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, HeaderComponent],
 
   templateUrl: './create-team.component.html',
   styleUrl: './create-team.component.scss'
