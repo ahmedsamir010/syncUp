@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from "../../../../Shared/components/header/header.component";
 @Component({
   selector: 'app-forgetpassword',
-  imports: [CommonModule, FormsModule, RouterModule, HeaderComponent],
+  imports: [CommonModule, FormsModule, RouterModule],
 
   templateUrl: './forgetpassword.component.html',
   styleUrl: './forgetpassword.component.scss'

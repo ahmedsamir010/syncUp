@@ -5,7 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { HeaderComponent } from "../../../../Shared/components/header/header.component";
 @Component({
   selector: 'app-add-team-member',
-  imports: [CommonModule, FormsModule, RouterModule, HeaderComponent],
+  imports: [CommonModule, FormsModule, RouterModule],
 
   templateUrl: './add-team-member.component.html',
   styleUrl: './add-team-member.component.scss'
